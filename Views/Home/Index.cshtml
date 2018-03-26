@@ -1,0 +1,40 @@
+﻿@{ 
+    ViewBag.title = "";
+    List<SelectListItem> li = new List<SelectListItem>();
+    li.Add(new SelectListItem { Text = "Aradhana",Value="1"});
+    li.Add(new SelectListItem { Text = "sarath", Value = "2" });
+    li.Add(new SelectListItem { Text = "karthi", Value = "3" });
+    li.Add(new SelectListItem { Text = "Sarvesh", Value = "4" });
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body ng-app="HomeApp">
+<div ng-controller="HomeController">
+    <table>
+        <tr>
+            <th>StudentID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Address</th>
+</tr>
+        <tr ng-repeat="e in regdata">
+        <td>{{e.StudentID}}</td>
+        <td>{{e.FirstName}}</td>
+        <td>{{e.LastName}}</td>
+        <td>{{e.Email}}</td>
+        <td>{{e.Address}}</td>
+
+        </tr>
+    </table>
+</div>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/HomeJs.js"></script>
+    @Html.DropDownList("FL", li, "Select")
+    @Html.DropDownList("L", (IEnumerable<SelectListItem>),ViewBag.Location,new { id="",})
+    
+</body>
+</html>
